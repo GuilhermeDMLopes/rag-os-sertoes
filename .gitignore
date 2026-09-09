@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
+data/*.pdf
+chroma_db/
+*.sqlite3
