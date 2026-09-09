@@ -1,19 +1,19 @@
-# RAG com Os Sertões
+# RAG with *Os Sertões*
 
-Projeto desenvolvido para comparar três estratégias de *Retrieval-Augmented Generation* (RAG) usando o livro **Os Sertões**, de Euclides da Cunha.
+This project compares three Retrieval-Augmented Generation (RAG) strategies using *Os Sertões*, by Euclides da Cunha.
 
-## Objetivo
+## Goal
 
-Construir e avaliar três abordagens de RAG para responder perguntas sobre a obra:
+Build and evaluate three RAG approaches that answer questions about the book:
 
 1. Naive RAG
 2. Parent RAG
 3. Rerank RAG
 
-O documento-base é o livro *Os Sertões*, disponível em:  
+The source document is available at:  
 https://fundar.org.br/wp-content/uploads/2021/06/os-sertoes.pdf
 
-## Estrutura do projeto
+## Project structure
 
 ```text
 notebooks/
@@ -25,21 +25,21 @@ data/
 └── os-sertoes.pdf
 ```
 
-## Abordagens implementadas
+## Implemented approaches
 
 ### 1. Naive RAG
 
-É a abordagem mais simples. O PDF é dividido em pequenos trechos (*chunks*), transformado em embeddings e armazenado em um banco vetorial. Quando uma pergunta é feita, o sistema busca os trechos mais parecidos e os envia para o modelo gerar a resposta.
+The PDF is split into small chunks, which are converted into embeddings and stored in a vector database. For each question, the system retrieves the most similar chunks and provides them to the language model to generate an answer.
 
 ### 2. Parent RAG
 
-Mantém dois níveis de texto: trechos pequenos para realizar a busca e trechos maiores, chamados de documentos-pai, para fornecer mais contexto ao modelo. Isso tende a evitar respostas baseadas em partes isoladas do livro.
+This approach uses two text levels: small chunks for retrieval and larger parent documents for the language model context. It helps avoid answers based only on isolated passages from the book.
 
 ### 3. Rerank RAG
 
-Após recuperar os trechos inicialmente mais relevantes, um modelo de reranking reorganiza esses resultados. Assim, os trechos mais úteis para responder à pergunta têm prioridade no contexto enviado à LLM.
+After the initial retrieval step, a reranking model reorganizes the returned chunks. The most useful passages are prioritized before the final context is sent to the language model.
 
-## Tecnologias
+## Technologies
 
 - Python
 - Jupyter Notebook
@@ -47,13 +47,13 @@ Após recuperar os trechos inicialmente mais relevantes, um modelo de reranking 
 - OpenAI API
 - ChromaDB
 - PyPDF
-- Git e GitHub
+- Git and GitHub
 
-## Execução
+## Running the project
 
-1. Instale as dependências descritas em `requirements.txt`.
-2. Configure a variável de ambiente `OPENAI_API_KEY`.
-3. Baixe o PDF para a pasta `data/`.
-4. Execute os notebooks na ordem desejada.
+1. Install the dependencies listed in `requirements.txt`.
+2. Create a `.env` file with `OPENAI_API_KEY`.
+3. Download the PDF into the `data/` directory.
+4. Run the notebooks in the desired order.
 
-> A chave da OpenAI não deve ser enviada ao GitHub.
+> Never commit the OpenAI API key to the repository.

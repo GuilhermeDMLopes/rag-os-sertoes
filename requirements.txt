@@ -8,3 +8,4 @@ GitPython
 jupyter
 ipykernel
 flashrank
+python-dotenv
