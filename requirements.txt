@@ -7,5 +7,5 @@ pypdf
 GitPython
 jupyter
 ipykernel
-flashrank
 python-dotenv
+langchain-cohere==0.1.5
