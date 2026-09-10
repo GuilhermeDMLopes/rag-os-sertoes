@@ -49,11 +49,30 @@ After the initial retrieval step, a reranking model reorganizes the returned chu
 - PyPDF
 - Git and GitHub
 
+## API credits and keys
+
+Running the notebooks requires active API credits and valid keys.
+
+| Approach | OpenAI API | Cohere API |
+| --- | --- | --- |
+| Naive RAG | Required for embeddings and answers | Not required |
+| Parent RAG | Required for embeddings and answers | Not required |
+| Rerank RAG | Required for embeddings and answers | Required for reranking |
+
+Create a `.env` file in the project root with both keys:
+
+```text
+OPENAI_API_KEY=your_openai_api_key
+COHERE_API_KEY=your_cohere_api_key
+```
+
+The `.env` file is ignored by Git and must never be committed. ChatGPT subscriptions do not include OpenAI API credits; OpenAI and Cohere billing are managed separately by each provider.
+
 ## Running the project
 
 1. Install the dependencies listed in `requirements.txt`.
-2. Create a `.env` file with `OPENAI_API_KEY`.
+2. Create the `.env` file with `OPENAI_API_KEY` and `COHERE_API_KEY`.
 3. Download the PDF into the `data/` directory.
 4. Run the notebooks in the desired order.
 
-> Never commit the OpenAI API key to the repository.
+> Never commit the OpenAI API and COHERE_API_KEY keys to the repository.
